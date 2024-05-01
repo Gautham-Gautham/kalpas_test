@@ -1,16 +1,16 @@
 # kalpas_test
 
-A new Flutter project.
+Simple basic Flutter project using riverpod
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To get started with the Car Control Dashboard app, follow these steps:
 
-A few resources to get you started if this is your first Flutter project:
+1. **Prerequisites:** Make sure you have Flutter installed on your system. If you don't have it yet, you can install it from the official Flutter website.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. **Clone the repository:** Clone this repository to your local machine using the following command:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. **Install Dependencies:** Navigate to the project directory and install the required dependencies:
+
+
+4. **Run the App:** Now, you can run the app on your connected device or emulator:
