@@ -3,12 +3,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:intl/intl.dart';
 import 'package:kalpas_test/Core/Common/snack_bar.dart';
 import 'package:kalpas_test/Features/News/Controller/news_controller.dart';
 import 'package:kalpas_test/main.dart';
 import 'package:http/http.dart' as http;
 import 'package:shimmer/shimmer.dart';
 
+import '../../../Core/Common/details_screen.dart';
 import '../../../Models/news_model.dart';
 
 final favoriteList = StateProvider<List<Article>>(
@@ -93,6 +95,14 @@ class _NewsScreenState extends ConsumerState<NewsScreen> {
                     ]),
                     child: InkWell(
                       onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailsScreen(
+                                article: article,
+                                fav: false,
+                              ),
+                            ));
                         print("hhhhhhhaaaaaaaaaaiiiiiiiiiiiiiiiiiiii");
                       },
                       child: Card(
@@ -153,7 +163,27 @@ class _NewsScreenState extends ConsumerState<NewsScreen> {
                                         Icon(
                                           Icons.calendar_month,
                                           color: Colors.grey,
-                                        )
+                                        ),
+                                        Text(
+                                          DateFormat("EEE,")
+                                              .format(article.publishedAt),
+                                          style: TextStyle(
+                                              fontSize: w * 0.03,
+                                              color: Colors.grey.shade600),
+                                        ),
+                                        Text(
+                                            DateFormat("dd MMM yyyy")
+                                                .format(article.publishedAt),
+                                            style: TextStyle(
+                                                fontSize: w * 0.03,
+                                                color: Colors.grey.shade600)),
+                                        Text(
+                                            DateFormat("HH:mm:ss").format(
+                                                    article.publishedAt) +
+                                                "GMT",
+                                            style: TextStyle(
+                                                fontSize: w * 0.03,
+                                                color: Colors.grey.shade600)),
                                       ],
                                     )
                                   ],

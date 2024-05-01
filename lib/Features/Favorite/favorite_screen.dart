@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:intl/intl.dart';
+import 'package:kalpas_test/Core/Common/details_screen.dart';
 import 'package:kalpas_test/Features/News/Screens/news_screen.dart';
 import '../../Core/Common/snack_bar.dart';
 import '../../Models/news_model.dart';
@@ -55,6 +57,14 @@ class _FavoriteScreenState extends ConsumerState<FavoriteScreen> {
                           ]),
                           child: InkWell(
                             onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailsScreen(
+                                      article: article,
+                                      fav: true,
+                                    ),
+                                  ));
                               print("hhhhhhhaaaaaaaaaaiiiiiiiiiiiiiiiiiiii");
                             },
                             child: Card(
@@ -118,7 +128,31 @@ class _FavoriteScreenState extends ConsumerState<FavoriteScreen> {
                                               Icon(
                                                 Icons.calendar_month,
                                                 color: Colors.grey,
-                                              )
+                                              ),
+                                              Text(
+                                                DateFormat("EEE,").format(
+                                                    article.publishedAt),
+                                                style: TextStyle(
+                                                    fontSize: w * 0.03,
+                                                    color:
+                                                        Colors.grey.shade600),
+                                              ),
+                                              Text(
+                                                  DateFormat("dd MMM yyyy")
+                                                      .format(
+                                                          article.publishedAt),
+                                                  style: TextStyle(
+                                                      fontSize: w * 0.03,
+                                                      color: Colors
+                                                          .grey.shade600)),
+                                              Text(
+                                                  DateFormat("HH:mm:ss").format(
+                                                          article.publishedAt) +
+                                                      "GMT",
+                                                  style: TextStyle(
+                                                      fontSize: w * 0.03,
+                                                      color: Colors
+                                                          .grey.shade600)),
                                             ],
                                           )
                                         ],
